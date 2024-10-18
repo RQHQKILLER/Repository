@@ -15,5 +15,4 @@ getgenv().Camlock_Settings = {
     }
     
     
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/main/Scripts/Cam%20Lock.lua'))() 
 
