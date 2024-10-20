@@ -1068,3 +1068,33 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
         end
     end
 end)
+------------------------------------
+local UserInputService = game:GetService("UserInputService")
+local AnimationId = "rbxassetid://14972011456"
+local Cooldown = 0 -- cd
+
+local lastDashTime = 0
+
+local function PlayAnimation()
+    local currentTime = tick()
+    if currentTime - lastDashTime >= Cooldown then
+        lastDashTime = currentTime
+
+        local character = game.Players.LocalPlayer.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                local animation = Instance.new("Animation")
+                animation.AnimationId = AnimationId
+                local track = humanoid:LoadAnimation(animation)
+                track:Play()
+            end
+        end
+    end
+end
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if not gameProcessedEvent and input.KeyCode == Enum.KeyCode.One then
+        PlayAnimation()
+    end
+end)
