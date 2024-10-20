@@ -73,7 +73,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -111,7 +111,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -149,7 +149,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -187,7 +187,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -225,7 +225,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -263,7 +263,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -301,7 +301,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -339,7 +339,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -377,7 +377,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -415,7 +415,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -453,7 +453,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -491,7 +491,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -529,7 +529,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -567,7 +567,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -605,7 +605,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -643,7 +643,7 @@ if tool then
     end)
 end
 
-----------------------------------------------------
+---------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -681,6 +681,83 @@ if tool then
     end)
 end
 
+---------------------
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:FindFirstChildOfClass("Animator") or humanoid:WaitForChild("Animator")
+local cooldownTime = 16 -- فترة التهدئة بالثواني
+local lastUseTime = 0
+
+local function playAnimation()
+    local currentTime = tick()
+    if currentTime - lastUseTime >= cooldownTime then
+        lastUseTime = currentTime
+        local animation = Instance.new("Animation")
+        animation.AnimationId = "rbxassetid://12984179757"
+        local track = animator:LoadAnimation(animation)
+        track:Play()
+        -- إيقاف الأنيميشن بعد 3 ثواني
+        delay(1, function()
+            track:Stop()
+        end)
+    else
+        print("الأداة تحت فترة تهدئة، يرجى الانتظار")
+    end
+end
+
+local tool = player.Backpack:FindFirstChild("Crazy Cutting") or player.Character:FindFirstChild("Crazy Cutting")
+
+if tool then
+    tool.Equipped:Connect(function()
+        tool.Activated:Connect(function()
+            -- تأخير تفعيل الأنيميشن لمدة ثانية واحدة
+            delay(0.1, function()
+                playAnimation()
+            end)
+        end)
+    end)
+end
+
+---------------------
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local animator = humanoid:FindFirstChildOfClass("Animator") or humanoid:WaitForChild("Animator")
+local cooldownTime = 16 -- فترة التهدئة بالثواني
+local lastUseTime = 0
+
+local function playAnimation()
+    local currentTime = tick()
+    if currentTime - lastUseTime >= cooldownTime then
+        lastUseTime = currentTime
+        local animation = Instance.new("Animation")
+        animation.AnimationId = "rbxassetid://12984179757"
+        local track = animator:LoadAnimation(animation)
+        track:Play()
+        -- إيقاف الأنيميشن بعد 3 ثواني
+        delay(1, function()
+            track:Stop()
+        end)
+    else
+        print("الأداة تحت فترة تهدئة، يرجى الانتظار")
+    end
+end
+
+local tool = player.Backpack:FindFirstChild("Crazy Cutting") or player.Character:FindFirstChild("Crazy Cutting")
+
+if tool then
+    tool.Equipped:Connect(function()
+        tool.Activated:Connect(function()
+            -- تأخير تفعيل الأنيميشن لمدة ثانية واحدة
+            delay(0.1, function()
+                playAnimation()
+            end)
+        end)
+    end)
+end
+
+--------------------------------------
 local UserInputService = game:GetService("UserInputService")
 local moving = false
 local canActivate = true
@@ -770,7 +847,7 @@ UserInputService.InputBegan:Connect(function(input)
     end
 end)
 
-
+----------------------
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
@@ -814,7 +891,7 @@ if tool then
     end)
 end
 
-
+-----------------------------
 local UserInputService = game:GetService("UserInputService")
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
@@ -850,7 +927,7 @@ UserInputService.InputBegan:Connect(function(input)
     end
 end)
 
-
+---------------------------------
 
 local player = game.Players.LocalPlayer
 local userInputService = game:GetService("UserInputService")
@@ -901,7 +978,7 @@ userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     end
 end)
 
-
+--------------------------
 
 local UserInputService = game:GetService("UserInputService")
 local AnimationId = "rbxassetid://11832849194"
@@ -933,6 +1010,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     end
 end)
 
+-------------------------------------------
 
 getgenv().Camlock_Settings = {
         Prediction = 0.157,
@@ -953,69 +1031,7 @@ getgenv().Camlock_Settings = {
     
     loadstring(game:HttpGet('https://raw.githubusercontent.com/elxocasXD/Trip-Hub/main/Scripts/Cam%20Lock.lua'))() 
 
-
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = normalSpeed
-        isLoopActive = false
-    end
-end
-
-game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
-            if isBoostEffectActive then
-                activateLoopSpeed(boostedSpeed)
-            else
-                activateLoopSpeed(normalSpeed)
-            end
-        elseif input.KeyCode == Enum.KeyCode.K then
-            isBoostEffectActive = true
-            wait(boostEffectDuration)
-            isBoostEffectActive = false
-        end
-    end
-end)
-
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local userInputService = game:GetService("UserInputService")
-local isAscending = false
-local animationId = "rbxassetid://17397193556"
-local animation = Instance.new("Animation")
-animation.AnimationId = animationId
-local animator = character:WaitForChild("Humanoid"):WaitForChild("Animator")
-local animationTrack
-
-local function onKeyPress(input, gameProcessed)
-    if input.KeyCode == Enum.KeyCode.K and not gameProcessed then
-        if isAscending then
-            for i = 50, 0, -1 do
-                character.Humanoid.HipHeight = i
-                wait(0.1) -- يمكنك تعديل هذا الرقم لتغيير سرعة الحركة
-            end
-            isAscending = false
-            if animationTrack then
-                animationTrack:Stop()
-            end
-        else
-            animationTrack = animator:LoadAnimation(animation)
-            animationTrack:Play()
-            for i = 0, 50, 1 do
-                character.Humanoid.HipHeight = i
-                wait(0.1) -- يمكنك تعديل هذا الرقم لتغيير سرعة الحركة
-            end
-            isAscending = true
-        end
-        -- إلغاء تفعيل النصائح البسيطة
-        game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
-            Text = "تم تفعيل المشي في الهواء!",
-            Color = Color3.new(1, 1, 0),
-            Font = Enum.Font.SourceSansBold,
-            FontSize = Enum.FontSize.Size18,
-        })
-    end
-end
-
-userInputService.InputBegan:Connect(onKeyPress)
-
+--------------------------------------------
 
 local normalSpeed = 50
 local boostedSpeed = 70
@@ -1048,8 +1064,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
         elseif input.KeyCode == Enum.KeyCode.K then
             isBoostEffectActive = true
             wait(boostEffectDuration)
-    if not gameProcessedEvent then
-        if input.KeyCode == Enum.KeyCode.R then
             isBoostEffectActive = false
         end
     end
