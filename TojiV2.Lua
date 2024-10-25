@@ -92,44 +92,6 @@ if ExplosiveRushRun:IsA("Animation") then
     ExplosiveRushRun.AnimationId = "rbxassetid://13256435512"
 end
 
-------------------
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local animator = humanoid:FindFirstChildOfClass("Animator") or humanoid:WaitForChild("Animator")
-local cooldownTime = 16 -- فترة التهدئة بالثواني
-local lastUseTime = 0
-
-local function playAnimation()
-    local currentTime = tick()
-    if currentTime - lastUseTime >= cooldownTime then
-        lastUseTime = currentTime
-        local animation = Instance.new("Animation")
-        animation.AnimationId = "rbxassetid://12984179757"
-        local track = animator:LoadAnimation(animation)
-        track:Play()
-        -- إيقاف الأنيميشن بعد 3 ثواني
-        delay(1, function()
-            track:Stop()
-        end)
-    else
-        print("الأداة تحت فترة تهدئة، يرجى الانتظار")
-    end
-end
-
-local tool = player.Backpack:FindFirstChild("Crazy Cutting") or player.Character:FindFirstChild("Crazy Cutting")
-
-if tool then
-    tool.Equipped:Connect(function()
-        tool.Activated:Connect(function()
-            -- تأخير تفعيل الأنيميشن لمدة ثانية واحدة
-            delay(0.1, function()
-                playAnimation()
-            end)
-        end)
-    end)
-end
-
 ----------------------------------
 local normalSpeed = 80
 local boostedSpeed = 200
