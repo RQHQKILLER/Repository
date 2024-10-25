@@ -445,7 +445,7 @@ local animation = Instance.new("Animation")
 animation.AnimationId = "rbxassetid://14657259011"
 local animator = humanoid:FindFirstChildOfClass("Animator") or humanoid:WaitForChild("Animator")
 local animationTrack
-local movementSpeed = 160
+local movementSpeed = 60
 
 local function moveForward()
     while moving do
@@ -456,7 +456,7 @@ local function moveForward()
 end
 
 UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.R and canActivate then
+    if input.KeyCode == Enum.KeyCode.H and canActivate then
         if moving then
             moving = false
             humanoidRootPart.Velocity = Vector3.new(0, 0, 0) -- إيقاف الحركة
