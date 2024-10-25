@@ -445,7 +445,7 @@ local animation = Instance.new("Animation")
 animation.AnimationId = "rbxassetid://14657259011"
 local animator = humanoid:FindFirstChildOfClass("Animator") or humanoid:WaitForChild("Animator")
 local animationTrack
-local movementSpeed = 60
+local movementSpeed = 160
 
 local function moveForward()
     while moving do
