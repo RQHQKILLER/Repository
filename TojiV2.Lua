@@ -430,3 +430,131 @@ UserInputService.InputBegan:Connect(function(input)
         animationTrack:Play()
     end
 end)
+
+----------------------------------------------------------------
+
+local UserInputService = game:GetService("UserInputService")
+local moving = false
+local canActivate = true
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local humanoid = character:WaitForChild("Humanoid")
+local runService = game:GetService("RunService")
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://14657259011"
+local animator = humanoid:FindFirstChildOfClass("Animator") or humanoid:WaitForChild("Animator")
+local animationTrack
+local movementSpeed = 160
+
+local function moveForward()
+    while moving do
+        local forwardDirection = humanoidRootPart.CFrame.LookVector
+        humanoidRootPart.Velocity = forwardDirection * movementSpeed
+        runService.Stepped:Wait()
+    end
+end
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.R and canActivate then
+        if moving then
+            moving = false
+            humanoidRootPart.Velocity = Vector3.new(0, 0, 0) -- إيقاف الحركة
+
+            for i, v in character:GetDescendants() do
+                if v:IsA("Attachment") and v:FindFirstChild("ParticleEmitter") and v.Name == "sigmarun" then
+                    v:Destroy()
+                end
+            end
+            if animationTrack then
+                animationTrack:Stop()
+            end
+
+            canActivate = true
+            wait(0) -- فترة التهدئة لمدة 10 ثواني
+            canActivate = true
+        else
+            canActivate = true
+            moving = true
+            for i, v in character:GetChildren() do
+                if v:IsA("Part") then
+                    local Attachment = Instance.new("Attachment")
+                    local ParticleEmitter = Instance.new("ParticleEmitter")
+                    Attachment.Parent = v
+                    Attachment.Name = "sigmarun"
+                    ParticleEmitter.Brightness = 5
+                    ParticleEmitter.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0.109804, 1, 0.0117647), 0), ColorSequenceKeypoint.new(1, Color3.new(0.0470588, 1, 0.0470588), 0)})
+                    ParticleEmitter.Drag = 3
+                    ParticleEmitter.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+                    ParticleEmitter.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                    ParticleEmitter.Lifetime = NumberRange.new(0.5, 0.5)
+                    ParticleEmitter.LightEmission = -1
+                    ParticleEmitter.LockedToPart = true
+                    ParticleEmitter.Rate = 2.5
+                    ParticleEmitter.Size = NumberSequence.new({NumberSequenceKeypoint.new(0, 2, 0), NumberSequenceKeypoint.new(1, 2, 0)})
+                    ParticleEmitter.Speed = NumberRange.new(0, 0)
+                    ParticleEmitter.Texture = "http://www.roblox.com/asset/?"
+                    ParticleEmitter.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0, 1, 0), NumberSequenceKeypoint.new(0.198684, 0.491803, 0), NumberSequenceKeypoint.new(0.501316, 0.513661, 0), NumberSequenceKeypoint.new(0.798684, 0.497268, 0), NumberSequenceKeypoint.new(1, 1, 0)})
+                    ParticleEmitter.ZOffset = -1
+                    ParticleEmitter.Parent = Attachment
+                end
+            end
+            animationTrack = animator:LoadAnimation(animation)
+            animationTrack:Play()
+            moveForward()
+
+            wait(10000) -- مدة التفعيل لـ 10 ثواني
+
+            moving = false -- التوقف عن المشي
+            humanoidRootPart.Velocity = Vector3.new(0, 0, 0) -- إيقاف الحركة
+
+            for i, v in character:GetDescendants() do
+                if v:IsA("Attachment") and v:FindFirstChild("ParticleEmitter") and v.Name == "sigmarun" then
+                    v:Destroy()
+                end
+            end
+            if animationTrack then
+                animationTrack:Stop()
+            end
+            
+            canActivate = true
+        end
+    end
+end)
+
+----------------------------------
+local UserInputService = game:GetService("UserInputService")
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local mouse = player:GetMouse()
+
+local function getClosestPlayerToMouse()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+
+    for _, targetPlayer in pairs(game.Players:GetPlayers()) do
+        if targetPlayer ~= player and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            local targetPos = targetPlayer.Character.HumanoidRootPart.Position
+            local mousePos = mouse.Hit.p
+            local distance = (targetPos - mousePos).magnitude
+            if distance < shortestDistance then
+                closestPlayer = targetPlayer
+                shortestDistance = distance
+            end
+        end
+    end
+
+    return closestPlayer
+end
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.N then
+        local closestPlayer = getClosestPlayerToMouse()
+        if closestPlayer and closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            local targetPos = closestPlayer.Character.HumanoidRootPart.Position
+            humanoidRootPart.CFrame = CFrame.new(targetPos - humanoidRootPart.CFrame.LookVector * 3, targetPos) -- ينقل اللاعب خلف أقرب شخص للماوس
+        end
+    end
+end)
+
