@@ -477,9 +477,148 @@ UserInputService.InputBegan:Connect(function(input)
         local closestPlayer = getClosestPlayerToMouse()
         if closestPlayer and closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
             local targetPos = closestPlayer.Character.HumanoidRootPart.Position
-            humanoidRootPart.CFrame = CFrame.new(targetPos - humanoidRootPart.CFrame.LookVector * 3, targetPos) - ينتقل لاقرب لاعب
+            humanoidRootPart.CFrame = CFrame.new(targetPos - humanoidRootPart.CFrame.LookVector * 3, targetPos) -- ينتقل لاقرب لاعب
         end
     end
 end)
 
 ------------------------------------------------------------------------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 3 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.Text = "Domain Breaker"
+        end
+    end
+end
+
+--------------------------------------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 2 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.Text = "Toji Slash"
+        end
+    end
+end
+--------------------------------------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 4 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.Text = "Rush"
+        end
+    end
+end
+--------------------------------------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 5 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.Text = "TOJI SLASHING"
+        end
+    end
+end
+--------------------------------------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 1 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.Text = "Two Swords"
+        end
+    end
+end
+
+------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 3 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.TextColor3 = Color3.fromRGB(233, 255, 108)
+        end
+    end
+end
+
+------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 4 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+        end
+    end
+end
+
+------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 5 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.TextColor3 = Color3.fromRGB(145, 47, 74)
+        end
+    end
+end
+
+------------
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local inventory = playerGui:WaitForChild("Inventory")
+local mainFrame = inventory:WaitForChild("MainFrame")
+
+for _, toolBtn in ipairs(mainFrame:GetChildren()) do
+    if toolBtn:IsA("GuiButton") and toolBtn.LayoutOrder == 2 then
+        local nameLabel = toolBtn:FindFirstChild("NameLabel")
+        if nameLabel and nameLabel:IsA("TextLabel") then
+            nameLabel.TextColor3 = Color3.fromRGB(110, 4, 4)
+        end
+    end
+end
