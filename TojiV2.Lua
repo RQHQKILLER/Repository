@@ -89,7 +89,7 @@ local beastBreathingFolder = animationsFolder:WaitForChild("BeastBreathing")
 local ExplosiveRushRun = beastBreathingFolder:WaitForChild("Devour")
 
 if ExplosiveRushRun:IsA("Animation") then
-    ExplosiveRushRun.AnimationId = "rbxassetid://13256435512"
+    ExplosiveRushRun.AnimationId = "rbxassetid://13566495494"
 end
 
 ----------------------------------
