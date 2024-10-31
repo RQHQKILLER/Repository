@@ -89,7 +89,7 @@ local beastBreathingFolder = animationsFolder:WaitForChild("BeastBreathing")
 local ExplosiveRushRun = beastBreathingFolder:WaitForChild("Devour")
 
 if ExplosiveRushRun:IsA("Animation") then
-    ExplosiveRushRun.AnimationId = "rbxassetid://13566495494"
+    ExplosiveRushRun.AnimationId = "rbxassetid://10952573899"
 end
 
 ----------------------------------
@@ -491,5 +491,16 @@ local ExplosiveRushRun = beastBreathingFolder:WaitForChild("Barrage")
 
 if ExplosiveRushRun:IsA("Animation") then
     ExplosiveRushRun.AnimationId = "rbxassetid://9682427331"
+end
+
+---------------------
+
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local animationsFolder = replicatedStorage:WaitForChild("Animations")
+local beastBreathingFolder = animationsFolder:WaitForChild("BeastBreathing")
+local ExplosiveRushRun = beastBreathingFolder:WaitForChild("ExplosiveRushUser")
+
+if ExplosiveRushRun:IsA("Animation") then
+    ExplosiveRushRun.AnimationId = "rbxassetid://13948583389"
 end
 
