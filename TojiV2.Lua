@@ -129,50 +129,6 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
     end
 end)
 
----------------------------------------------------------------------------------------
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local userInputService = game:GetService("UserInputService")
-local isAscending = false
-local animationId = "rbxassetid://"
-local animation = Instance.new("Animation")
-animation.AnimationId = animationId
-local animator = character:WaitForChild("Humanoid"):WaitForChild("Animator")
-local animationTrack
-
-local function onKeyPress(input, gameProcessed)
-    if input.KeyCode == Enum.KeyCode.K and not gameProcessed then
-        if isAscending then
-            for i = 50, 0, -1 do
-                character.Humanoid.HipHeight = i
-                wait(0.1) -- يمكنك تعديل هذا الرقم لتغيير سرعة الحركة
-            end
-            isAscending = false
-            if animationTrack then
-                animationTrack:Stop()
-            end
-        else
-            animationTrack = animator:LoadAnimation(animation)
-            animationTrack:Play()
-            for i = 0, 50, 1 do
-                character.Humanoid.HipHeight = i
-                wait(0.1) -- يمكنك تعديل هذا الرقم لتغيير سرعة الحركة
-            end
-            isAscending = true
-        end
-        -- إلغاء تفعيل النصائح البسيطة
-        game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
-            Text = "تم تفعيل المشي في الهواء!",
-            Color = Color3.new(1, 1, 0),
-            Font = Enum.Font.SourceSansBold,
-            FontSize = Enum.FontSize.Size18,
-        })
-    end
-end
-
-userInputService.InputBegan:Connect(onKeyPress)
-
 -------------------------------------------------------------------------------------------------------
 
 local normalSpeed = 50
@@ -351,7 +307,7 @@ local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
 local animation = Instance.new("Animation")
-animation.AnimationId = "rbxassetid://17397193556"
+animation.AnimationId = "rbxassetid://13287329762"
 local animationTrack = humanoid:LoadAnimation(animation)
 
 local userInputService = game:GetService("UserInputService")
