@@ -483,23 +483,3 @@ UserInputService.InputBegan:Connect(function(input)
 end)
 
 ------------------------------------------------------------------------------
-
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local animationsFolder = replicatedStorage:WaitForChild("Animations")
-local beastBreathingFolder = animationsFolder:WaitForChild("BloodSickelsArt")
-local ExplosiveRushRun = beastBreathingFolder:WaitForChild("Barrage")
-
-if ExplosiveRushRun:IsA("Animation") then
-    ExplosiveRushRun.AnimationId = "rbxassetid://9682427331"
-end
-
----------------------
-
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local animationsFolder = replicatedStorage:WaitForChild("Animations")
-local beastBreathingFolder = animationsFolder:WaitForChild("BeastBreathing")
-local ExplosiveRushRun = beastBreathingFolder:WaitForChild("ExplosiveRushUser")
-
-if ExplosiveRushRun:IsA("Animation") then
-    ExplosiveRushRun.AnimationId = "rbxassetid://13948583389"
-end
