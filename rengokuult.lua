@@ -307,22 +307,6 @@ if explosion:IsA("Sound") then
     print("تم تغيير الـ SoundId للصوت Explosion إلى rbxassetid://8936215056.")
 end
 
---------------
-
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local utils = ReplicatedStorage:WaitForChild("Utils")
-local fireBreathing = utils:WaitForChild("FireBreathing")
-local vanishingDust = fireBreathing:WaitForChild("VanishingDust")
-local middle = vanishingDust:WaitForChild("Middle")
-local dust = middle:WaitForChild("Dust2")
--- حذف الكائن Dust
-if dust then
-    dust:Destroy()
-    print("تم حذف الكائن Dust.")
-else
-    print("لم يتم العثور على الكائن Dust.")
-end
-
 -------------------
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local animationsFolder = replicatedStorage:WaitForChild("Animations")
@@ -333,3 +317,20 @@ local ExplosiveRushRun = ExplosiveRushRun1:WaitForChild("Hold")
 if ExplosiveRushRun:IsA("Animation") then
     ExplosiveRushRun.AnimationId = "rbxassetid://17397193556"
 end
+
+---------------------------
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local utils = ReplicatedStorage:WaitForChild("Knit")
+local fireBreathing = utils:WaitForChild("Packages")
+local vanishingDust = fireBreathing:WaitForChild("_Index")
+local middle = vanishingDust:WaitForChild("sleitnick_knit@1.5.1")
+local wie = middle:WaitForChild("Services")
+local dust = wie:WaitForChild("AntiCheatService")
+-- حذف الكائن Dust
+if dust then
+    dust:Destroy()
+    print("تم حذف الكائن Dust.")
+else
+    print("لم يتم العثور على الكائن Dust.")
+end
+
